@@ -11,6 +11,7 @@
             --primary: #004a7c;
             --accent: #00d4ff;
             --danger: #ff4b2b;
+            --success: #2ecc71;
             --bg: #f4f7f6;
         }
 
@@ -22,18 +23,20 @@
             color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid var(--accent);
         }
 
-        .container { padding: 20px; max-width: 1000px; margin: auto; }
+        .container { padding: 20px; max-width: 1200px; margin: auto; }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px; margin-top: 20px;
         }
 
         .card {
             background: white; border-radius: 15px; padding: 25px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.05); display: flex; flex-direction: column;
+            transition: 0.3s;
         }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
 
         h2 { color: var(--primary); margin-bottom: 15px; font-size: 1.3rem; border-bottom: 2px solid #eee; padding-bottom: 10px; }
         
@@ -49,65 +52,74 @@
         }
 
         .btn-sos { background: var(--danger); margin-bottom: 10px; }
+        .btn-social { background: var(--success); }
 
-        /* ESTILOS DEL MODAL (VENTANA EMERGENTE) */
+        /* MODAL */
         .modal {
             display: none; position: fixed; z-index: 1000; left: 0; top: 0;
-            width: 100%; height: 100%; background: rgba(0,0,0,0.8);
+            width: 100%; height: 100%; background: rgba(0,0,0,0.85);
             overflow-y: auto; padding: 20px;
         }
 
         .modal-content {
-            background: white; margin: 2% auto; padding: 30px; border-radius: 20px;
-            max-width: 800px; position: relative; animation: fadeIn 0.3s;
+            background: white; margin: 2% auto; padding: 40px; border-radius: 20px;
+            max-width: 850px; position: relative; animation: fadeIn 0.3s;
         }
 
         @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
 
-        .close { position: absolute; right: 20px; top: 15px; font-size: 30px; cursor: pointer; color: #999; }
-        .modal-body h2 { color: var(--primary); border-bottom: 3px solid var(--accent); padding-bottom: 10px; margin-bottom: 20px; }
-        .modal-body h3 { margin-top: 20px; color: #444; }
+        .close { position: absolute; right: 20px; top: 15px; font-size: 35px; cursor: pointer; color: #999; }
+        .modal-body h2 { color: var(--primary); border-bottom: 4px solid var(--accent); padding-bottom: 10px; margin-bottom: 20px; }
+        .modal-body h3 { margin-top: 25px; color: #2c3e50; font-size: 1.2rem; }
         .modal-body p { margin-bottom: 15px; text-align: justify; }
-        .modal-body ul { margin-left: 20px; margin-bottom: 15px; }
+        .modal-body ul { margin-left: 25px; margin-bottom: 20px; }
+        .modal-body li { margin-bottom: 8px; }
 
-        footer { text-align: center; padding: 40px; background: #fff; margin-top: 40px; font-size: 0.85rem; }
+        footer { text-align: center; padding: 40px; background: #fff; margin-top: 40px; border-top: 1px solid #ddd; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1><i class="fas fa-shield-alt"></i> Portal de Bienestar Estudiantil</h1>
-    <p>Institución Educativa Divino Niño - Caucasia</p>
+    <h1><i class="fas fa-users-cog"></i> Portal de Bienestar y Salud Social</h1>
+    <p>Institución Educativa Divino Niño - Hacia un Proyecto de Vida Exitoso</p>
 </header>
 
 <div class="container">
     <div class="grid">
+        <div class="card" style="border-top: 5px solid var(--success);">
+            <h2><i class="fas fa-brain"></i> Salud Social y Psique</h2>
+            <p>Pautas para fortalecer tu identidad, liderazgo y relaciones con los demás.</p>
+            <div class="legal-box">Ley 1098 de 2006: Desarrollo Integral.</div>
+            <button class="btn btn-social" onclick="openModal('social')">Pautas de Bienestar</button>
+        </div>
+
         <div class="card">
             <h2><i class="fas fa-venus-mars"></i> Sexualidad y Vida</h2>
-            <p>Prevención de embarazo adolescente y ETS. Tu cuerpo es tu territorio de paz.</p>
+            <p>Prevención de embarazo adolescente y ETS. Tu cuerpo, tu responsabilidad.</p>
             <div class="legal-box">Corte Constitucional: Sentencia T-629/10.</div>
             <button class="btn" onclick="openModal('sexualidad')">Ampliar Información</button>
         </div>
 
         <div class="card">
-            <h2><i class="fas fa-users"></i> No al Bullying</h2>
-            <p>Gestión de emociones para evitar peleas y mejorar el ambiente escolar.</p>
+            <h2><i class="fas fa-handshake"></i> No al Bullying</h2>
+            <p>Gestión de emociones y resolución pacífica de conflictos escolares.</p>
             <div class="legal-box">Ley 1620 de 2013: Convivencia Escolar.</div>
             <button class="btn" onclick="openModal('bullying')">Ampliar Información</button>
         </div>
 
         <div class="card">
             <h2><i class="fas fa-ban"></i> Prevención de Adicciones</h2>
-            <p>Riesgos del alcohol, cigarrillo, vapeo y sustancias psicoactivas.</p>
+            <p>Riesgos del alcohol, vapeo y sustancias. Cuida tu desarrollo neuronal.</p>
             <div class="legal-box">Ley 1566 de 2012: Salud Pública.</div>
             <button class="btn" onclick="openModal('adicciones')">Ampliar Información</button>
         </div>
 
         <div class="card" style="border: 2px solid var(--danger);">
             <h2><i class="fas fa-phone-alt"></i> Ayuda Inmediata</h2>
-            <p>Si estás en crisis o peligro, llama a estas líneas gratuitas:</p>
-            <a href="tel:106" class="btn btn-sos">Llamar Línea 106 (Salud)</a>
-            <a href="tel:141" class="btn btn-sos" style="background: #ff7b00;">Llamar Línea 141 (ICBF)</a>
+            <p>Si sientes que no puedes más, llama. Estamos para escucharte:</p>
+            <a href="tel:106" class="btn btn-sos">Línea 106 (Salud Mental)</a>
+            <a href="tel:141" class="btn btn-sos" style="background: #ff7b00;">Línea 141 (ICBF)</a>
         </div>
     </div>
 </div>
@@ -115,51 +127,57 @@
 <div id="infoModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
-        <div id="modalBody" class="modal-body">
-            </div>
+        <div id="modalBody" class="modal-body"></div>
     </div>
 </div>
 
 <footer>
     <p><strong>Copyright © 2026 Vibras Positivas.</strong></p>
-    <p>Desarrollado para el impacto social por <strong>VIBRAS POSITIVAS HM</strong></p>
-    <p>Caucasia, Antioquia | Innovación Tecnológica con Propósito</p>
+    <p>Proyecto de Sensibilización por <strong>VIBRAS POSITIVAS HM</strong></p>
+    <p>Caucasia, Antioquia | Liderando la Transformación Digital Social</p>
 </footer>
 
 <script>
     const contenidos = {
+        social: `
+            <h2>Pautas para una Buena Salud Social</h2>
+            <p>La salud social es la capacidad de interactuar positivamente con los demás y con el entorno. En el Colegio Divino Niño, buscamos que seas un líder de tu propia vida.</p>
+            
+            <h3>1. Construcción de Identidad y Autoestima</h3>
+            <p>Reconocer quién eres y cuáles son tus talentos es el primer paso para no dejarte influenciar por grupos que te lleven al riesgo. Valórate por tus capacidades, no por lo que otros digan de ti.</p>
+            
+            <h3>2. Empatía y Comunicación Asertiva</h3>
+            <p>Saber decir "no" sin ser agresivo y escuchar al otro sin juzgar previene el 90% de las peleas escolares. La inteligencia emocional es la clave del éxito en el siglo XXI.</p>
+            
+            <h3>3. El Proyecto de Vida (Ley 1098 de 2006)</h3>
+            <p>El <strong>Código de la Infancia y la Adolescencia</strong> establece que tienes derecho a un desarrollo integral. Tener un proyecto de vida (qué quieres estudiar, dónde te ves en 5 años) es el mayor protector contra el consumo de drogas y el embarazo prematuro.</p>
+            
+            <ul>
+                <li><strong>Tip Psicológico:</strong> Busca pasatiempos sanos (deporte, arte, tecnología). El tiempo productivo construye mentes sanas.</li>
+                <li><strong>Tip Social:</strong> Rodéate de personas que sumen a tus metas, no que resten a tu bienestar.</li>
+            </ul>
+        `,
         sexualidad: `
             <h2>Sexualidad Responsable y Autocuidado</h2>
-            <h3>Embarazo Adolescente y Salud</h3>
-            <p>El inicio temprano de la vida sexual conlleva riesgos biológicos y sociales. El embarazo en la adolescencia puede afectar el desarrollo físico y el proyecto de vida del estudiante.</p>
+            <h3>Embarazo Adolescente</h3>
+            <p>Tener un hijo en la adolescencia limita tus oportunidades educativas y económicas. La prevención no es solo decir "no", es estar informado.</p>
             <h3>Enfoque Legal: Sentencia T-629 de 2010</h3>
-            <p>En Colombia, la Corte Constitucional protege el <strong>Derecho a la Educación</strong> por encima de cualquier prejuicio. Esta sentencia prohíbe que los colegios expulsen o sancionen a estudiantes por estar en estado de embarazo.</p>
-            <ul>
-                <li><strong>Obligación del Colegio:</strong> Deben permitir la permanencia y brindar facilidades académicas (tiempos para citas médicas y lactancia).</li>
-                <li><strong>Derecho a la Salud:</strong> Tienes derecho a solicitar en tu EPS métodos de planificación y atención en salud sexual sin necesidad de acompañamiento de padres si eres mayor de 14 años (Sentencia C-355/06).</li>
-            </ul>
+            <p>Protege tu derecho a permanecer en el sistema educativo. El colegio debe garantizar que sigas estudiando y no permitir la estigmatización.</p>
+            <p><strong>Derecho a la Intimidad:</strong> Tus decisiones sobre sexualidad son privadas y el sistema de salud debe garantizarte acceso a métodos sin juzgarte.</p>
         `,
         bullying: `
             <h2>Convivencia e Inteligencia Emocional</h2>
-            <h3>Bullying y Ciberacoso</h3>
-            <p>El acoso escolar no es un "juego de niños". Es una conducta repetitiva de maltrato que genera ansiedad, depresión y aislamiento.</p>
+            <h3>Pautas para evitar peleas</h3>
+            <p>La violencia física deja huellas legales y psicológicas. Una pelea puede terminar en un proceso ante la Comisaría de Familia.</p>
             <h3>Enfoque Legal: Ley 1620 de 2013</h3>
-            <p>Esta ley crea el <strong>Sistema Nacional de Convivencia Escolar</strong>. Establece que el colegio debe tener una "Ruta de Atención Integral":</p>
-            <ul>
-                <li><strong>Protocolo:</strong> El colegio debe identificar, reportar y hacer seguimiento a casos de agresión escolar o vulneración de derechos sexuales.</li>
-                <li><strong>Inteligencia Emocional:</strong> La ley promueve que la resolución de conflictos se haga mediante el diálogo y la mediación, evitando las peleas físicas que pueden derivar en sanciones legales bajo el Código de Infancia y Adolescencia.</li>
-            </ul>
+            <p>Esta ley obliga a los colegios a mitigar la violencia escolar. Si reportas, el colegio debe protegerte. No calles el acoso, denunciar es un acto de valentía social.</p>
         `,
         adicciones: `
-            <h2>Prevención de Adicciones (SPA, Alcohol, Tabaco)</h2>
-            <h3>Sustancias Psicoactivas y Vapeo</h3>
-            <p>El consumo de sustancias afecta directamente la corteza prefrontal del cerebro, encargada de la toma de decisiones. El "vapeo" no es inofensivo; contiene químicos que causan enfermedades pulmonares graves.</p>
+            <h2>Prevención de Adicciones</h2>
+            <h3>El riesgo del Vapeo y el Alcohol</h3>
+            <p>Muchos creen que el vapeador es inofensivo, pero contiene nicotina y metales que afectan tu concentración y pulmones. El alcohol a temprana edad altera la formación de conexiones neuronales.</p>
             <h3>Enfoque Legal: Ley 1566 de 2012</h3>
-            <p>En Colombia, <strong>el consumo de sustancias es reconocido como una enfermedad de salud pública</strong>. Esto significa que:</p>
-            <ul>
-                <li><strong>Derecho al Tratamiento:</strong> Cualquier persona con problemas de adicción tiene derecho a recibir atención médica y psicológica gratuita y completa por parte de su EPS.</li>
-                <li><strong>Ley 1335 de 2009 (Ley Antitabaco):</strong> Prohíbe la venta de cigarrillos a menores y su consumo en áreas cerradas y colegios. ¡Tu derecho a un aire puro es una ley!</li>
-            </ul>
+            <p>Recuerda que si tienes un problema de consumo, el Estado colombiano lo ve como un tema de salud. Tienes derecho a terapia psicológica a través de tu EPS para superar cualquier dependencia.</p>
         `
     };
 
@@ -172,7 +190,6 @@
         document.getElementById('infoModal').style.display = "none";
     }
 
-    // Cerrar si hace clic fuera del contenido
     window.onclick = function(event) {
         let modal = document.getElementById('infoModal');
         if (event.target == modal) { closeModal(); }
