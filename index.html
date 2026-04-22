@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienestar Estudiantil - VIBRAS POSITIVAS HM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a5f7a; /* Azul Institucional Divino Niño */
+            --secondary: #c82333; /* Rojo para alertas */
+            --accent: #28a745; /* Verde salud */
+            --light: #f8f9fa;
+            --dark: #212529;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e9ecef;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            padding: 1.5rem;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .stat-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffca2c;
+            padding: 1rem;
+            margin: 10px 0;
+            font-size: 0.9rem;
+        }
+
+        .law-item {
+            background: #f1f8ff;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 10px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .btn-emergency {
+            display: block;
+            background: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: 0.3s;
+        }
+
+        .btn-emergency:hover {
+            background: #a71d2a;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+
+        .logo-placeholder {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-placeholder">COLEGIO DIVINO NIÑO</div>
+    <h1>Prevención y Salud Pública</h1>
+    <p>Hacia un futuro libre de adicciones</p>
+</header>
+
+<div class="container">
+    
+    <section class="card">
+        <h2><i class="fas fa-chart-line"></i> Realidad en Colombia</h2>
+        <p>Según el último Estudio Nacional de Consumo en Escolares:</p>
+        <div class="stat-box">
+            <strong>Alcohol:</strong> La edad de inicio promedio es de 12.1 años. Es la sustancia de mayor impacto en jóvenes.
+        </div>
+        <div class="stat-box">
+            <strong>Vapeo:</strong> El uso de cigarrillos electrónicos ha aumentado un 18% en entornos escolares, afectando la salud pulmonar.
+        </div>
+        <div class="stat-box">
+            <strong>Riesgo:</strong> El consumo temprano reduce el desarrollo de la corteza prefrontal hasta los 25 años.
+        </div>
+    </section>
+
+    <section class="card">
+        <h2><i class="fas fa-gavel"></i> Tus Derechos y Deberes</h2>
+        <div class="law-item">
+            <strong>Ley 1335 de 2009:</strong> Prohíbe la venta de tabaco a menores y su consumo en áreas educativas.
+        </div>
+        <div class="law-item">
+            <strong>Ley 1566 de 2012:</strong> El consumo es un problema de salud pública. Tienes derecho a tratamiento integral por tu EPS.
+        </div>
+        <div class="law-item">
+            <strong>Código de Convivencia:</strong> Portar o consumir en perímetros escolares genera medidas correctivas inmediatas.
+        </div>
+    </section>
+
+    <section class="card">
+        <h2><i class="fas fa-hand-holding-heart"></i> ¿Necesitas ayuda?</h2>
+        <p>Si tú o un amigo están pasando por un momento difícil, no están solos.</p>
+        <a href="tel:106" class="btn-emergency">
+            <i class="fas fa-phone-alt"></i> Llamar a Línea 106 (Salud Mental)
+        </a>
+        <p style="text-align: center; margin-top: 10px; font-size: 0.8rem;">
+            O acércate a la oficina de Orientación Escolar del Colegio.
+        </p>
+    </section>
+
+    <section class="card">
+        <h2><i class="fas fa-calculator"></i> Impacto de Vida</h2>
+        <label>Si dejas de gastar en cigarrillos/alcohol por semana ($):</label>
+        <input type="number" id="gasto" placeholder="Ej: 20000" style="width: 100%; padding: 10px; margin-top: 10px; border-radius: 5px; border: 1px solid #ccc;">
+        <button onclick="calcular()" style="width: 100%; padding: 10px; margin-top: 10px; background: var(--primary); color: white; border: none; border-radius: 5px; cursor: pointer;">Calcular Proyección</button>
+        <div id="resultado" style="margin-top: 15px; font-weight: bold; color: var(--accent);"></div>
+    </section>
+
+</div>
+
+<footer>
+    <p><strong>Créditos:</strong> © 2026 Vibras Positivas. Todos los derechos reservados.</p>
+    <p>Impulsado por <strong>VIBRAS POSITIVAS HM</strong></p>
+    <p>Caucasia, Antioquia, Colombia</p>
+</footer>
+
+<script>
+    function calcular() {
+        const gasto = document.getElementById('gasto').value;
+        const mensual = gasto * 4;
+        const anual = mensual * 12;
+        const resultado = document.getElementById('resultado');
+        
+        if(gasto > 0) {
+            resultado.innerHTML = `
+                Ahorrarías $${mensual.toLocaleString()} al mes y $${anual.toLocaleString()} al año.<br>
+                Además, tus pulmones y cerebro estarían 100% más sanos.
+            `;
+        } else {
+            resultado.innerHTML = "Por favor ingresa un valor válido.";
+        }
+    }
+
+    // Registro de Service Worker para PWA (Opcional)
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW no registrado', err));
+        });
+    }
+</script>
+
+</body>
+</html>
