@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienestar Estudiantil - VIBRAS POSITIVAS HM</title>
+    <title>Academia de Bienestar - VIBRAS POSITIVAS HM</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary: #004a7c;
             --accent: #00d4ff;
-            --danger: #ff4b2b;
+            --danger: #d90429; /* Rojo vibrante para sustancias */
             --success: #2ecc71;
             --teacher: #6f42c1;
             --bg: #f4f7f6;
@@ -21,14 +21,14 @@
 
         header {
             background: linear-gradient(135deg, var(--primary), #002d4d);
-            color: white; padding: 60px 20px; text-align: center; border-bottom: 5px solid var(--accent);
+            color: white; padding: 50px 20px; text-align: center; border-bottom: 5px solid var(--accent);
         }
 
         .container { padding: 20px; max-width: 1200px; margin: auto; }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px; margin-top: 20px;
         }
 
@@ -36,6 +36,7 @@
             background: white; border-radius: 15px; padding: 25px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.05); display: flex; flex-direction: column;
             transition: 0.3s; position: relative; overflow: hidden;
+            border-top: 5px solid var(--primary);
         }
         .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
 
@@ -46,19 +47,15 @@
             border-radius: 5px; font-size: 0.7rem; font-weight: bold; color: white;
         }
 
-        .legal-box {
-            background: #eef2f3; border-left: 4px solid var(--accent);
-            padding: 12px; margin: 15px 0; font-size: 0.85rem; font-style: italic;
-        }
-
         .btn {
             display: block; width: 100%; padding: 12px; text-align: center;
             background: var(--primary); color: white; text-decoration: none;
             border-radius: 8px; margin-top: auto; font-weight: bold; cursor: pointer; border: none;
         }
 
-        .btn-sos { background: var(--danger); margin-bottom: 10px; }
+        .btn-danger { background: var(--danger); }
         .btn-teacher { background: var(--teacher); }
+        .btn-sos { background: #333; color: white; margin-bottom: 8px; }
 
         /* MODAL */
         .modal {
@@ -69,19 +66,18 @@
 
         .modal-content {
             background: white; margin: 2% auto; padding: 40px; border-radius: 20px;
-            max-width: 900px; position: relative; animation: fadeIn 0.3s;
+            max-width: 850px; position: relative; animation: fadeIn 0.3s;
         }
 
         @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
 
         .close { position: absolute; right: 20px; top: 15px; font-size: 35px; cursor: pointer; color: #999; }
-        .modal-body h2 { color: var(--primary); border-bottom: 4px solid var(--accent); padding-bottom: 10px; margin-bottom: 20px; }
-        .modal-body h3 { margin-top: 25px; color: #2c3e50; font-size: 1.2rem; background: #f8f9fa; padding: 5px 10px; border-radius: 5px; }
-        .modal-body p { margin-bottom: 15px; text-align: justify; }
+        .modal-body h2 { color: var(--danger); border-bottom: 4px solid #eee; padding-bottom: 10px; }
+        .modal-body h3 { margin-top: 20px; color: var(--primary); }
         
         .pedagogy-tip {
             background: #fff3cd; border: 1px dashed #ffeeba;
-            padding: 15px; border-radius: 10px; margin: 20px 0;
+            padding: 15px; border-radius: 10px; margin: 20px 0; font-weight: bold;
         }
 
         footer { text-align: center; padding: 40px; background: #fff; margin-top: 40px; border-top: 1px solid #ddd; }
@@ -91,48 +87,48 @@
 
 <header>
     <h1><i class="fas fa-graduation-cap"></i> Academia de Bienestar HM</h1>
-    <p>Formación Pedagógica para Estudiantes y Docentes - Colegio Divino Niño</p>
+    <p>Prevención de Sustancias y Salud Social - Colegio Divino Niño</p>
 </header>
 
 <div class="container">
     <div class="grid">
-        <div class="card" style="border-top: 5px solid var(--teacher);">
-            <span class="badge" style="background: var(--teacher);">PARA PROFESORES</span>
-            <h2><i class="fas fa-chalkboard-teacher"></i> Guía Pedagógica</h2>
-            <p>Estrategias de aula para manejar crisis, convivencia y prevención temprana.</p>
-            <div class="legal-box">Lineamientos MEN: Guía 49 de Convivencia.</div>
-            <button class="btn btn-teacher" onclick="openModal('docente')">Herramientas Docentes</button>
+        
+        <div class="card" style="border-top-color: var(--danger);">
+            <span class="badge" style="background: var(--danger);">PEDAGOGÍA URGENTE</span>
+            <h2><i class="fas fa-pills"></i> Sustancias, Alcohol y Tabaco</h2>
+            <p>Capacitación sobre los efectos reales del vapeo, cigarrillo y alcohol en estudiantes.</p>
+            <div style="background:#fdeaea; padding:10px; border-radius:5px; margin:10px 0; font-size:0.85rem;">
+                <strong>Ley 1566/12:</strong> El consumo es un asunto de salud pública, no un crimen.
+            </div>
+            <button class="btn btn-danger" onclick="openModal('sustancias')">ENTRAR AL AULA DE PREVENCIÓN</button>
         </div>
 
-        <div class="card" style="border-top: 5px solid var(--success);">
-            <span class="badge" style="background: var(--success);">ESTUDIANTES</span>
+        <div class="card" style="border-top-color: var(--success);">
+            <span class="badge" style="background: var(--success);">SICOLOGÍA</span>
             <h2><i class="fas fa-brain"></i> Salud Social</h2>
-            <p>Pautas pedagógicas para fortalecer el liderazgo y el proyecto de vida.</p>
-            <div class="legal-box">Ley 1098 de 2006: Desarrollo Integral.</div>
+            <p>Pautas para fortalecer tu identidad, liderazgo y relaciones con tus compañeros.</p>
             <button class="btn" style="background: var(--success);" onclick="openModal('social')">Taller de Identidad</button>
         </div>
 
         <div class="card">
             <span class="badge" style="background: var(--primary);">DINÁMICA</span>
-            <h2><i class="fas fa-handshake"></i> Inteligencia Emocional</h2>
-            <p>Actividades para la resolución pacífica de conflictos y manejo de la ira.</p>
-            <div class="legal-box">Ley 1620 de 2013: Convivencia.</div>
+            <h2><i class="fas fa-users"></i> No al Bullying</h2>
+            <p>Técnicas de inteligencia emocional para evitar peleas y manejar la ira escolar.</p>
             <button class="btn" onclick="openModal('bullying')">Manual de Convivencia</button>
         </div>
 
-        <div class="card">
-            <span class="badge" style="background: var(--primary);">CIENCIA</span>
-            <h2><i class="fas fa-ban"></i> Neurociencia y SPA</h2>
-            <p>Capacitación sobre cómo el consumo afecta el aprendizaje y el cerebro.</p>
-            <div class="legal-box">Ley 1566 de 2012: Salud Pública.</div>
-            <button class="btn" onclick="openModal('adicciones')">Aula de Prevención</button>
+        <div class="card" style="border-top-color: var(--teacher);">
+            <span class="badge" style="background: var(--teacher);">DOCENTES</span>
+            <h2><i class="fas fa-chalkboard-teacher"></i> Guía Pedagógica</h2>
+            <p>Herramientas para que los profesores manejen situaciones de riesgo en el aula.</p>
+            <button class="btn btn-teacher" onclick="openModal('docente')">Módulo para Profes</button>
         </div>
 
         <div class="card" style="border: 2px solid var(--danger);">
             <h2><i class="fas fa-phone-alt"></i> Red de Apoyo</h2>
-            <p>Líneas oficiales para reporte y acompañamiento psicológico inmediato.</p>
-            <a href="tel:106" class="btn btn-sos">Línea 106 (Salud Mental)</a>
-            <a href="tel:141" class="btn btn-sos" style="background: #ff7b00;">Línea 141 (ICBF)</a>
+            <p>Si necesitas ayuda inmediata, no dudes en llamar:</p>
+            <a href="tel:106" class="btn btn-sos" style="background:#ff4b2b">Llamar Línea 106 (Salud)</a>
+            <a href="tel:141" class="btn btn-sos" style="background:#ff7b00">Llamar Línea 141 (ICBF)</a>
         </div>
     </div>
 </div>
@@ -146,74 +142,51 @@
 
 <footer>
     <p><strong>Copyright © 2026 Vibras Positivas.</strong></p>
-    <p>Plataforma Educativa desarrollada por <strong>VIBRAS POSITIVAS HM</strong></p>
-    <p>Caucasia, Antioquia | Pedagogía para la Transformación Social</p>
+    <p>Iniciativa pedagógica de <strong>VIBRAS POSITIVAS HM</strong></p>
+    <p>Caucasia, Antioquia | Transformando la Educación con Tecnología</p>
 </footer>
 
 <script>
     const contenidos = {
-        docente: `
-            <h2>Capacitación para Docentes: El Aula como Entorno Protector</h2>
-            <p>Profesor del Divino Niño, usted es el primer respondiente en la salud social de sus estudiantes. Aquí están las pautas pedagógicas:</p>
+        sustancias: `
+            <h2>Capacitación: Sustancias Psicoactivas (SPA) y Licores</h2>
+            <p>El consumo de sustancias en la etapa escolar interrumpe el desarrollo de las neuronas y afecta tu futuro profesional.</p>
             
-            <h3>1. Identificación de Alertas Tempranas</h3>
-            <p>Un cambio brusco en el rendimiento académico o el aislamiento social son señales de posibles problemas de salud mental o consumo. Use la observación activa sin juzgar.</p>
+            <h3>1. El Vapeador y el Cigarrillo (Ley 1335 de 2009)</h3>
+            <p>La pedagogía moderna enseña que el vapeo no es "vapor sano". Contiene nicotina y metales que causan la enfermedad EVALI (lesión pulmonar grave). La Ley 1335 prohíbe la venta de estos productos a menores y su uso en el Colegio Divino Niño.</p>
             
-            <h3>2. Protocolo de "Primera Escucha"</h3>
-            <p>Cuando un estudiante confíe un problema, aplique la técnica de escucha empática: valide sus sentimientos, mantenga la calma y recuerde el deber de confidencialidad (excepto si hay peligro inminente).</p>
+            <h3>2. Alcohol y Licores</h3>
+            <p>El alcohol es un depresor. En menores, altera la memoria a corto plazo. Recuerda que la venta de licor a menores es un delito bajo la Ley 124 de 1994.</p>
             
             <div class="pedagogy-tip">
-                <strong>Estrategia Pedagógica:</strong> En clase de Ética, realice "Círculos de Palabra" para que los estudiantes expresen sus emociones. Esto reduce la tensión y previene peleas futuras.
+                Estrategia Pedagógica: No se trata de "prohibir por prohibir", se trata de entender que tu cerebro está en construcción hasta los 25 años. ¡Protégelo!
             </div>
 
-            <h3>3. Marco Legal Docente</h3>
-            <p>Usted está respaldado por la <strong>Guía 49 del Ministerio de Educación Nacional</strong>. No debe resolver los problemas solo; debe activar el Comité de Convivencia Escolar para un manejo institucional.</p>
+            <h3>3. Marco Legal de Salud (Ley 1566 de 2012)</h3>
+            <p>Si tienes un problema de consumo, la ley colombiana te protege: Tienes derecho a que tu EPS te brinde tratamiento médico y sicológico integral de forma gratuita. El colegio debe ser un apoyo, no solo un ente castigador.</p>
         `,
         social: `
-            <h2>Taller Estudiantil: Construyendo mi Proyecto de Vida</h2>
-            <p>La mejor pedagogía es la que te permite conocerte a ti mismo.</p>
-            
-            <h3>Dinámica: El Árbol de la Vida</h3>
-            <p>Dibuja un árbol en tu cuaderno:</p>
-            <ul>
-                <li><strong>Raíces:</strong> Tus valores y tu familia.</li>
-                <li><strong>Tronco:</strong> Tus fortalezas (en qué eres bueno).</li>
-                <li><strong>Frutos:</strong> Tus metas (qué quieres lograr en el Colegio Divino Niño).</li>
-            </ul>
-            
-            <div class="pedagogy-tip">
-                <strong>Reflexión Social:</strong> Un estudiante con metas claras es menos propenso a ceder a la presión de grupo para consumir sustancias.
-            </div>
-
-            <h3>Inteligencia Emocional Aplicada</h3>
-            <p>Aprende la técnica del <strong>Semáforo</strong> ante una pelea: 
-            🔴 Rojo: Para, respira. 
-            🟡 Amarillo: Piensa en las consecuencias (Ley 1620). 
-            🟢 Verde: Actúa con diálogo.</p>
+            <h2>Pautas de Salud Social y Psique</h2>
+            <h3>Identidad y Proyecto de Vida</h3>
+            <p>Un joven con un sueño (ser médico, deportista, programador) es más fuerte contra la presión de grupo.</p>
+            <div class="pedagogy-tip">Taller: Haz una lista de 3 metas para este año y 1 para los próximos 5 años. Ese es tu escudo contra los vicios.</div>
+            <h3>Ley 1098 de 2006</h3>
+            <p>Esta ley garantiza tu desarrollo integral. Tienes derecho a ser protegido contra todo lo que afecte tu integridad física y mental.</p>
         `,
         bullying: `
-            <h2>Convivencia y Mediación de Conflictos</h2>
-            <h3>Pedagogía de la Paz Escolar</h3>
-            <p>El bullying no se soluciona solo con castigos, sino con <strong>justicia restaurativa</strong>. El agresor debe entender el impacto de su daño y trabajar en repararlo.</p>
-            
-            <h3>Marco Legal para la Clase</h3>
-            <p>La <strong>Ley 1620 de 2013</strong> exige que el Manual de Convivencia sea construido con la participación de ustedes, los estudiantes. ¡Ustedes son los dueños de su ambiente escolar!</p>
-            
-            <div class="pedagogy-tip">
-                <strong>Actividad:</strong> Role-playing (juego de roles). Interpreta cómo ayudarías a un compañero que está siendo acosado en redes sociales.
-            </div>
+            <h2>Inteligencia Emocional y Convivencia</h2>
+            <h3>Evitando Peleas y Bullying</h3>
+            <p>La ira es una emoción natural, pero la violencia es una decisión. La Ley 1620 de 2013 protege tu derecho a un ambiente libre de acoso.</p>
+            <div class="pedagogy-tip">Técnica Pedagógica: Cuando sientas rabia, usa la técnica del conteo o retírate del lugar. Ganar una pelea física es perder tu tranquilidad legal.</div>
         `,
-        adicciones: `
-            <h2>Capacitación: Neurociencia del Bienestar</h2>
-            <h3>¿Qué le pasa a tu cerebro?</h3>
-            <p>Pedagógicamente, es importante entender que el cerebro adolescente está en "remodelación". Sustancias como el alcohol y el vapeo detienen esa construcción.</p>
-            
-            <div class="pedagogy-tip">
-                <strong>Dato Científico para Estudiantes:</strong> El aprendizaje se fija en las neuronas. El THC (marihuana) o la nicotina "nublan" esas conexiones, haciendo que estudiar sea el doble de difícil.
-            </div>
-
-            <h3>Protección Legal</h3>
-            <p>La <strong>Ley 1566 de 2012</strong> te protege. Si sientes que tienes una adicción, no eres un criminal, eres alguien que necesita salud. Pide capacitación en prevención en tu colegio.</p>
+        docente: `
+            <h2>Guía para Profesores del Divino Niño</h2>
+            <p>Basado en la Guía 49 del MEN, el docente debe ser un facilitador de la comunicación.</p>
+            <ul>
+                <li>Identifique cambios en el comportamiento.</li>
+                <li>Escuche sin juzgar para crear confianza.</li>
+                <li>Active la Ruta de Convivencia si detecta consumo o acoso.</li>
+            </ul>
         `
     };
 
